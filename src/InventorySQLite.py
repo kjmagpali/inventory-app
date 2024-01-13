@@ -72,7 +72,7 @@ class InventorySQLite:
         return result[0] > 0
     
     def export_csv(self):
-        with open(self.csv, "w") as filehandle:
+        with open(self.csv_file, "w") as filehandle:
             dbEntries = self.fetch_inventory()
             for entry in dbEntries:
                 print(entry)
@@ -91,7 +91,7 @@ class InventorySQLite:
             }
             entries_json.append(entry_data)
 
-        with open(self.json, "w") as filehandle:
+        with open(self.json_file, "w") as filehandle:
             json.dump(entries_json, filehandle, indent=2)
 
     def import_csv(self, csv_file):
@@ -100,5 +100,3 @@ class InventorySQLite:
             for row in csv_reader:
                 code, item, category, stock, price = map(str.strip, row)
                 self.insert_item(code, item, category, stock, price)
-
-#ADD TESTS
