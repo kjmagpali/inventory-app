@@ -17,7 +17,7 @@ class InventoryGUI(customtkinter.CTk):
         self.iconbitmap('pandemanila.ico')
         self.resizable(False, False)
 
-        self.bg = PhotoImage(file = 'pdmwindow.pgm')
+        self.bg = PhotoImage(file = 'window.pbm')
         window_bg = Label(self, image = self.bg, borderwidth = 0)
         window_bg.place(x = 0, y = 0)
 
